@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/tree.gd" type="Script" id=1]
+[ext_resource path="res://sprites/tree.png" type="Texture" id=2]
+[ext_resource path="res://sprites/particle.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.9232, 239.848 )
+
+[node name="tree" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 32, 240 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/mask = 2
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_group_":true }
+
+[node name="Sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 32, 240 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="health" type="Label" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 32.0
+margin/top = -175.0
+margin/right = -32.0
+margin/bottom = -206.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HEALTH:\n10"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="emitter" type="Particles2D" parent="."]
+
+config/amount = 8
+config/lifetime = 0.5
+config/emit_timeout = 0.1
+config/emitting = false
+config/explosiveness = 0.08
+config/texture = ExtResource( 3 )
+params/direction = 183.27
+params/spread = 180.0
+params/linear_velocity = 100.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 167.56
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+
+
